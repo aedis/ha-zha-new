@@ -25,7 +25,7 @@ def _custom_endpoint_init(self, node_config, *argv):
                 [0x0405, 0, 10, 600, 5],
             ],
             "in_cluster": [0x0000, 0x0402, ],
-            "out_cluster": [], 
+            "out_cluster": [],
             "type": "sensor",
         }
         self.add_input_cluster(0x0402)
@@ -39,7 +39,7 @@ def _custom_endpoint_init(self, node_config, *argv):
                 [0x0405, 0, 10, 120, 5],
             ],
             "in_cluster": [0x0000, 0x402],
-            "out_cluster": [], 
+            "out_cluster": [],
             "type": "sensor",
         }
         self.add_input_cluster(0x0402)
@@ -51,8 +51,8 @@ def _custom_endpoint_init(self, node_config, *argv):
                 [0x0406, 0, 10, 1800, 1],
             ],
             "in_cluster": [0x0000, 0xffff, 0x0406 ],
-            "out_cluster": [], 
-            "type": "binary_sensor",    
+            "out_cluster": [],
+            "type": "binary_sensor",
         }
         self.add_input_cluster(0x0406)
     elif selector in ['lumi.sensor_motion.aq2', ]:
@@ -62,7 +62,7 @@ def _custom_endpoint_init(self, node_config, *argv):
                 [0x0400, 0, 10, 1800, 10],
             ],
             "in_cluster": [0x0000,0x0406,  0xffff],
-            "out_cluster": [], 
+            "out_cluster": [],
 #            "type": "binary_sensor",
         }
         self.add_input_cluster(0x0406)
@@ -70,11 +70,11 @@ def _custom_endpoint_init(self, node_config, *argv):
     elif selector == 'lumi.sensor_wleak.aq1':
         config = {
             "in_cluster": [0x0000, 0xff01],
-            "out_cluster": [], 
+            "out_cluster": [],
             "type": "binary_sensor",
             "config_report": [
                 [65281, 0, 10, 1800, 1],
-            ], 
+            ],
         }
 
     node_config.update(config)
@@ -166,6 +166,6 @@ def _parse_attribute(entity, attrib, value, *argv):
         entity.entity_connect["pressure"]._state = round(
             float(attributes["pressure"]) / 100, 0)
 
-    attributes["Last seen"] = dt_util.now()
+    attributes["last seen"] = dt_util.now()
     entity._device_state_attributes.update(attributes)
     return(attrib, result)

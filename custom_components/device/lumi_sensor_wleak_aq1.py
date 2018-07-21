@@ -89,6 +89,6 @@ def _parse_attribute(entity, attrib, value, *argv):
     else:
         result = value
     _LOGGER.debug("Parse Result: %s", result)
-    attributes["Last seen"] = dt_util.now()
+    attributes["last seen"] = dt_util.now()
     entity._device_state_attributes.update(attributes)
     return(attrib, result)
