@@ -700,6 +700,7 @@ class Entity(entity.Entity):
         self._device_state_attributes['rssi'] = endpoint.device.rssi
         self._device_state_attributes['nwk'] = endpoint.device.nwk
         self._device_state_attributes['path'] = self._endpoint.device.path
+        self._device_state_attributes['Last seen'] = None
         _LOGGER.debug("dir entity:%s",  dir(self))
 
     @property
